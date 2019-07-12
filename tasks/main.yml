@@ -1,0 +1,37 @@
+---
+
+- name: include ddns client variables
+  include_vars: "{{ ddns_client }}.yml"
+  tags:
+    - install
+    - config
+    - start-service
+
+- name: install dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ ddns_packages }}"
+  tags:
+    - install
+
+- name: template configuration files
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  with_items:
+    - "{{ ddns_config_files }}"
+  tags:
+    - config
+
+- name: start ddns service
+  systemd:
+    name: "{{ ddns_service }}"
+    state: started
+    enabled: true
+  tags:
+    - start-service

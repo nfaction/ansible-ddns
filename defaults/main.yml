@@ -1,0 +1,9 @@
+---
+
+ddns_client: google_ddns
+
+ddns_packages: []
+
+ddns_config_files: []
+
+ddns_service: ""
