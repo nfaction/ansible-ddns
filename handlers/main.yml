@@ -1,0 +1,9 @@
+---
+
+- name: start ddns service
+  service:
+    name: "{{ ddns_service }}"
+    state: started
+    enabled: true
+  tags:
+    - start-service

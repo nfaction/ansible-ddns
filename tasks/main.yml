@@ -25,13 +25,11 @@
     mode: "{{ item.mode | default('0644') }}"
   with_items:
     - "{{ ddns_config_files }}"
+  notify: start ddns service
   tags:
     - config
 
-- name: start ddns service
-  systemd:
-    name: "{{ ddns_service }}"
-    state: started
-    enabled: true
+- name: flush handlers
+  meta: flush_handlers
   tags:
     - start-service
