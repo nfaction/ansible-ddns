@@ -1,3 +1,5 @@
 ---
 
 package_override: dnf
+
+ddclient_user: ddclient

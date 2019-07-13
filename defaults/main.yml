@@ -4,6 +4,8 @@ ddns_client: google_ddns
 
 ddns_packages: []
 
+ddclient_user: root
+
 ddns_config_files: []
 
 ddns_service: ""
