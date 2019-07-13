@@ -1,5 +1,17 @@
 ---
 
+- name: gather os specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+      skip: true
+  tags:
+    - vars
+    - install
+
 - name: include ddns client variables
   include_vars: "{{ ddns_client }}.yml"
   tags:
@@ -7,10 +19,11 @@
     - config
     - start-service
 
-- name: install dependencies
+- name: install ddns packages
   package:
     name: "{{ item }}"
     state: present
+    use: "{{ package_override | default(omit) }}"
   with_items:
     - "{{ ddns_packages }}"
   tags:

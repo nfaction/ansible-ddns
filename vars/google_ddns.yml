@@ -7,6 +7,8 @@ ddns_config_files:
   - name: ddclient config
     src: ddclient.conf.j2
     dest: /etc/ddclient.conf
+    owner: ddclient
+    group: ddclient
     mode: "0600"
 
 ddns_service: ddclient
