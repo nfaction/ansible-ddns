@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Matthew DePorter
-  description: Role to configure X0 VNC Server
+  description: Role to configure Dynamic DNS
   company: Mobile-Tech LLC
 
   # If the issue tracker for your role is not on github, uncomment the
