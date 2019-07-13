@@ -24,6 +24,8 @@
     name: "{{ item }}"
     state: present
     use: "{{ package_override | default(omit) }}"
+  register: install_result
+  until: install_result | succeeded
   with_items:
     - "{{ ddns_packages }}"
   tags:
