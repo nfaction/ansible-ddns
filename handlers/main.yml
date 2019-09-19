@@ -1,9 +1,9 @@
 ---
 
-- name: start ddns service
+- name: restart ddns service
   service:
     name: "{{ ddns_service }}"
-    state: started
+    state: restarted
     enabled: true
   tags:
-    - start-service
+    - restart-service

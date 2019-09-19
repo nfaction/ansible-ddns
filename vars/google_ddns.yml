@@ -12,9 +12,3 @@ ddns_config_files:
     mode: "0600"
 
 ddns_service: ddclient
-
-# Gmail Credentials
-google_domain_protocol: "googledomains"
-google_domain_login: "testuser"
-google_domain_password: "testpassword"
-google_domain_ddns: "ddns-domain.test"
