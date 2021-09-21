@@ -3,8 +3,6 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
 platforms:
   - name: ddns-instance
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian10}-ansible:${MOLECULE_TAG:-latest}"
@@ -23,16 +21,14 @@ scenario:
     - destroy
     - dependency
     - prepare
-    # - lint
+    - lint
     - syntax
     - create
     - converge
     - idempotence
     - side_effect
-    # - verify
+    - verify
     - destroy
 Scenario: 'default'
 verifier:
-  name: testinfra
-  lint:
-    name: flake8
+  name: ansible
