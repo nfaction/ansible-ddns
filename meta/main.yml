@@ -1,5 +1,7 @@
 ---
 galaxy_info:
+  role_name: ddns
+  namespace: ansible
   author: Matthew DePorter
   description: Role to configure Dynamic DNS
   company: Mobile-Tech LLC
