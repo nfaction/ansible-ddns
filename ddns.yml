@@ -2,7 +2,6 @@
 
 - name: configure ddclient on remote host
   hosts: all
-  gather_facts: false
   vars:
     roles_dir: roles
   pre_tasks:
